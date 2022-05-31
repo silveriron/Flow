@@ -1,0 +1,48 @@
+:root {
+    --main-color: rgb(247, 64, 81);
+    --serve-color: rgb(246, 153, 163);
+}
+
+
+header {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgb(246, 153,163);
+}
+
+header #logo {
+    flex: 1;
+    text-align: center;
+}
+
+header img {
+    margin-left: 1rem;
+    width: 8rem;
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    flex: 13;
+    list-style: none;
+    padding: 0;
+}
+
+header li {
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+header li a {
+    text-decoration: none;
+    color: rgb(247, 64, 81);
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+header li a:hover {
+    background-color: rgb(255, 228, 231);
+}

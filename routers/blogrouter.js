@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('../database/db')
+const bcrypt = require('bcrypt')
 
 const router = express.Router();
 
@@ -13,6 +14,30 @@ router.get('/about', (req, res) => {
 
 router.get('/login', (req, res) => {
     res.render('login')
+})
+
+router.post('/login', async (req, res) => {
+    const data = req.body
+    const name = data.name
+    const password = data.password
+
+    if (!name || password) {
+        return res.redirect('/login')
+    }
+
+    const admin = await db.getDb().collection('admin').findOne({name: name})
+    const isAuth = await bcrypt.compare(password, admin.password)
+
+    if (!isAuth) {
+        return res.redirect('/login')
+    }
+
+    req.session.user = {
+        name: name
+    }
+    req.session.isAuth = true
+
+    res.redirect('/')
 })
 
 router.get('/html', (req, res) => {
