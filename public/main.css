@@ -1,0 +1,30 @@
+header {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+
+header #logo {
+    flex: 1;
+    text-align: center;
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    flex: 10;
+    list-style: none;
+    padding: 0;
+}
+
+header li {
+    text-decoration: none;
+    margin: 0 2rem;
+}
+
+header a {
+    text-decoration: none;
+    color: rgb(10, 10, 10);
+}
