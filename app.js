@@ -14,7 +14,7 @@ app.use('/public', express.static(__dirname + '/public'))
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 app.use(session({
-    secret: 'bronzesilverlee0829',
+    secret: 'bronse@silver&',
     resave: false,
     saveUninitialized: true,
 }))

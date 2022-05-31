@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./includes/head') %>
+    <link rel="stylesheet" href="/public/style/post.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./includes/header') %>
+    <main>
+        <form id="postForm" action="/post" method="POST">
+            <label for="title">제목</label>
+            <input id="title" name="title" type="text"/>
+            <label for="summernote">내용</label>
+            <textarea name="content" id="summernote""></textarea>
+        <script>
+            $(document).ready(function () {
+                $('#summernote').summernote({
+                    height: 400,
+                    maxHeight: 400,
+                });
+            });
+        </script>
+            <!-- <textarea id="content" name="content" rows="10"></textarea> -->
+            <label for="category">포스팅 종류</label>
+            <select id="category" name="category">
+                <% for (const category of categories) { %>
+                <option value="<%= category.name %>"><%= category.name %></option>
+                <% } %>
+            </select>
+            <button>저장하기</button>
+        </form>
+    </main>
+</body>
+</html>
