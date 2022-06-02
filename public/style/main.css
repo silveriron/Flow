@@ -3,6 +3,9 @@
     --serve-color: rgb(246, 153, 163);
 }
 
+html, body {
+    height: 100%;
+}
 
 header {
     display: flex;
@@ -25,9 +28,12 @@ header img {
 header ul {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex: 13;
     list-style: none;
     padding: 0;
+    margin-bottom: 0;
+    margin-right: 25vw;
 }
 
 header li {
@@ -45,8 +51,19 @@ header li a {
 
 header li a:hover {
     background-color: rgb(255, 228, 231);
+    text-decoration: none;
 }
 
 main {
-    text-align: center;
+    display: flex;
+    height: 100%;
+}
+
+#content {
+    flex: 4;
+}
+
+#sidebar {
+    border-left: 2px solid rgb(246, 153,163);
+    flex: 1;
 }

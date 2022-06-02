@@ -5,17 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include('./includes/head') %>
+    <link rel="stylesheet" href="/public/style/postdetail.css">
     <title>Document</title>
 </head>
 <body>
     <%- include('./includes/header') %>
     <main>
+        <section id="content">
         <h1>
             <%= post.title %>
         </h1>
-        <div>
+        <hr width="90%"/>
+        <div id="post-content">
             <%- post.content %>
         </div>
+    </section>
+        <%- include('./includes/aside') %>
     </main>
 </body>
 </html>

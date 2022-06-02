@@ -11,28 +11,31 @@
 <body>
     <%- include('./includes/header') %>
     <main>
-        <form id="postForm" action="/post" method="POST">
-            <label for="title">제목</label>
-            <input id="title" name="title" type="text"/>
-            <label for="summernote">내용</label>
-            <textarea name="content" id="summernote""></textarea>
-        <script>
-            $(document).ready(function () {
-                $('#summernote').summernote({
-                    height: 400,
-                    maxHeight: 400,
+        <section id="content">
+            <form id="postForm" action="/post" method="POST">
+                <label for="title">제목</label>
+                <input id="title" name="title" type="text"/>
+                <label for="summernote">내용</label>
+                <textarea name="content" id="summernote""></textarea>
+            <script>
+                $(document).ready(function () {
+                    $('#summernote').summernote({
+                        height: 400,
+                        maxHeight: 400,
+                    });
                 });
-            });
-        </script>
-            <!-- <textarea id="content" name="content" rows="10"></textarea> -->
-            <label for="category">포스팅 종류</label>
-            <select id="category" name="category">
-                <% for (const category of categories) { %>
-                <option value="<%= category.name %>"><%= category.name %></option>
-                <% } %>
-            </select>
-            <button>저장하기</button>
-        </form>
+            </script>
+                <!-- <textarea id="content" name="content" rows="10"></textarea> -->
+                <label for="category">포스팅 종류</label>
+                <select id="category" name="category">
+                    <% for (const category of categories) { %>
+                    <option value="<%= category.name %>"><%= category.name %></option>
+                    <% } %>
+                </select>
+                <button>저장하기</button>
+            </form>
+        </section>
+            <%- include('./includes/aside') %>
     </main>
 </body>
 </html>
