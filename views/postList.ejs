@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include('./includes/head') %>
-    <title>Document</title>
+    <title><%= posts[0].category %></title>
 </head>
 <body>
     <%- include('./includes/header') %>
     <main>
-        <h1>This is CSS page</h1>
+        <h1>This is <%= posts[0].category %> page</h1>
+        <% for (const post of posts) { %>
+            <a href="/html/<%= post._id %>">
+                <h2><%= post.title %></h2>
+            </a>
+        <% } %>
     </main>
 </body>
 </html>

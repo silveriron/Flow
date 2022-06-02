@@ -45,17 +45,24 @@ router.post('/login', async (req, res) => {
 })
 
 router.get('/html', async (req, res) => {
-    const posts = await db.getDb().collection('posts').findOne({title: 'ㄹㅇㄴㄹㄴㄷ'})
-    res.send(posts.content)
-//     res.render('html', {posts: posts})
+    const posts = await db.getDb().collection('posts').find({category: 'HTML'}).toArray()
+    res.render('postList', {posts: posts})
 })
 
-router.get('/css', (req, res) => {
-    res.render('css')
+router.get('/html/:id', async (req, res) => {
+    const id = req.params.id
+    const post = await db.getDb().collection('posts').findOne({_id: ObjectId(id)})
+    res.render('postDetail', {post: post})
 })
 
-router.get('/javascript', (req, res) => {
-    res.render('javascript')
+router.get('/css', async (req, res) => {
+    const posts = await db.getDb().collection('posts').find({category: 'CSS'}).toArray()
+    res.render('postList', {posts: posts})
+})
+
+router.get('/javascript', async (req, res) => {
+    const posts = await db.getDb().collection('posts').find({category: 'Javascript'}).toArray()
+    res.render('postList', {posts: posts})
 })
 
 router.get('/post', async (req, res) => {

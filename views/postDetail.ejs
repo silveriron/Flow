@@ -10,7 +10,12 @@
 <body>
     <%- include('./includes/header') %>
     <main>
-        <h1>This is javascript page</h1>
+        <h1>
+            <%= post.title %>
+        </h1>
+        <div>
+            <%- post.content %>
+        </div>
     </main>
 </body>
 </html>
